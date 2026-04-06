@@ -7,7 +7,7 @@ namespace passwordcsharp.Dto
 {
     public class SenhaResponse
     {
-        public bool Senha { get; set; }
+    public bool SenhaValidada { get; set; }
         
     }
 }

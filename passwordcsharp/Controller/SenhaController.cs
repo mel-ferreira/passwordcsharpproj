@@ -20,8 +20,15 @@ public class SenhaController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<bool> Validador([FromBody] SenhaRequest senhaRequest)
+    public IActionResult Validador([FromBody] SenhaRequest senhaRequest)
     {
-        return Ok(_senhaService.Validar(senhaRequest.Senha));
+        var resultado = _senhaService.Validar(senhaRequest.Senha);
+
+        if (!resultado)
+            throw new Exception("Regra de negócio"); 
+        return Ok(new SenhaResponse
+        {
+            SenhaValidada = true
+        });
     }
 }
