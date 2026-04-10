@@ -30,6 +30,7 @@ public class GlobalException
 
         var err = new ErroPadronizado
         {
+            SenhaValida = false,
             TempoErro = DateTime.UtcNow,
             Status = response.StatusCode,
             Erro = "Regra de negócio",
